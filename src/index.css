@@ -21,13 +21,14 @@ code {
   flex-direction: column;
 }
 
-.contact-list .MuiTypography-root{
+.MuiPaper-elevation .MuiTypography-root{
   display: flex;
   align-items: center;
 }
-.contact-list .MuiTypography-root svg{
+.MuiPaper-elevation .MuiTypography-root svg{
   margin-right: 10px;
 }
-.contact-list .MuiTypography-root p{
+.MuiPaper-root .MuiPaper-elevation p{
   color: #d0d0d0;
+  margin: 5px 0;
 }

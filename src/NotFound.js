@@ -8,7 +8,7 @@ const NotFound = () => {
   };
 
   return (
-    <Container>
+    <div className='page'>
       <Box sx={{ textAlign: 'center', marginTop: '50px' }}>
         <Typography variant="h1" gutterBottom color="white">
           404
@@ -21,11 +21,12 @@ const NotFound = () => {
           color="secondary"
           startIcon={<ArrowBackIcon />}
           onClick={handleGoBack}
+          style={{ marginTop: '20px' }}
         >
           Go Back
         </Button>
       </Box>
-    </Container>
+    </div>
   );
 };
 

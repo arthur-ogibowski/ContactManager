@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, TextField, Typography, Paper, Grid} from '@mui/material';
 import { useNavigate, Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const AccountSettings = () => {
     const [password, setPassword] = useState('');
@@ -13,6 +14,8 @@ const AccountSettings = () => {
         // Remove user login status
         localStorage.removeItem('isLoggedIn');
         localStorage.removeItem('email');
+
+
         // Redirect to login page
         navigate('/');
         window.location.reload();
@@ -43,9 +46,28 @@ const AccountSettings = () => {
             <Typography variant="h2" marginBottom={10} color="white" align='center'>
                 Contact Manager
             </Typography>
+            <div style={{ marginBottom: '20px', width: '10%'}}>
+            <Typography variant="p" color="white">
+                Hello {currentUserEmail} !
+            </Typography>
+            <Button
+                variant="text"
+                color="secondary"
+                onClick={handleLogout}
+                style={{ width: '100%',marginTop: 10}}
+                endIcon={<LogoutIcon/>}
+                
+            >
+                Logout
+            </Button>
+            </div>
+
             <Paper elevation={5} style={{ padding: 20, width: '30vw' }} align='center'>
             <Typography variant="h4" gutterBottom color="white">
                 Account Settings
+            </Typography>
+            <Typography variant="body1" gutterBottom color="white">
+                Delete your account
             </Typography>
             <div style={{ marginBottom: '20px' }}>
                 <TextField
@@ -78,14 +100,6 @@ const AccountSettings = () => {
                     style={{ width: '45%' }}
                 >
                     Delete Account
-                </Button>
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    onClick={handleLogout}
-                    style={{ width: '45%' }}
-                >
-                    Logout
                 </Button>
             </div>
             {errorMessage && <p style={{ color: 'red', marginTop: '20px' }}>{errorMessage}</p>}
